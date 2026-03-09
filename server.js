@@ -3,7 +3,9 @@ const fs = require('fs');
 const path = require('path');
 
 const port = Number(process.env.PORT || 10000);
-const distDir = path.join(__dirname, 'dist', 'moustapha-portfolio');
+const baseDistDir = path.join(__dirname, 'dist', 'moustapha-portfolio');
+const browserDistDir = path.join(baseDistDir, 'browser');
+const distDir = fs.existsSync(browserDistDir) ? browserDistDir : baseDistDir;
 
 const contentTypes = {
   '.html': 'text/html; charset=utf-8',
@@ -50,6 +52,7 @@ const server = http.createServer((req, res) => {
 
   fs.readFile(targetPath, (err, data) => {
     if (err) {
+      console.error('Failed to read file:', targetPath, err.message);
       res.statusCode = 500;
       res.end('Server error');
       return;
