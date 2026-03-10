@@ -155,6 +155,20 @@ export class AppComponent implements AfterViewInit {
 
     const introText =
       "Je suis Moustapha Dieng, développeur Full Stack et mobile basé à Dakar. " +
+      "Formé à Simplon Sénégal et à l'Université de Bambey, " +
+      "j'ai travaillé chez JANT TECH, Akila Intelligence et GANDAL IT. " +
+      "Mon stack : Ionic, Angular, React, Flutter, HTML, CSS, JavaScript, " +
+      "PHP, Laravel, Node.js, Spring Boot, MySQL, PostgreSQL et MongoDB. " +
+      "J'ai réalisé AfricaRent, une plateforme de gestion de location de voitures, " +
+      "Diante Pharma, une plateforme médicale pour hôpitaux et militaires, " +
+      "Akila Drive pour la location de voitures, YAKALMA pour la restauration et la livraison, " +
+      "SmartFuel, un système intelligent pour stations-service, " +
+      "Arrosage Automatique, un système IoT avec capteurs d'humidité, " +
+      "Yakar, une solution IoT de surveillance température et humidité, " +
+      "SunuPointage, un système de pointage par cartes RFID, " +
+      "MiniBank, une plateforme bancaire numérique, " +
+      "et Gestion d'École pour le suivi scolaire et les présences. " +
+      "Vous pouvez me contacter au 77 085 93 47 ou par email à Moustaphadieng0405@gmail.com.";
       "Je conçois des applications mobiles et des solutions IoT qui tournent dans le monde réel.";
 
     const speakOnce = () => {
