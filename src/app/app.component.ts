@@ -11,6 +11,7 @@ export class AppComponent implements AfterViewInit {
     this.initReveal();
     this.initSkillBars();
     this.initCountUp();
+    this.initIntroSpeech();
   }
 
   private initCursor(): void {
@@ -144,5 +145,38 @@ export class AppComponent implements AfterViewInit {
     );
 
     items.forEach((item) => countObs.observe(item));
+  }
+
+  private initIntroSpeech(): void {
+    const speech = window.speechSynthesis;
+    if (!speech || typeof SpeechSynthesisUtterance === 'undefined') {
+      return;
+    }
+
+    const introText =
+      "Je suis Moustapha Dieng, développeur Full Stack et mobile basé à Dakar. " +
+      "Je conçois des applications mobiles et des solutions IoT qui tournent dans le monde réel.";
+
+    const speakOnce = () => {
+      if (speech.speaking) {
+        return;
+      }
+      const utterance = new SpeechSynthesisUtterance(introText);
+      utterance.lang = 'fr-FR';
+      utterance.rate = 1;
+      utterance.pitch = 1;
+      speech.speak(utterance);
+    };
+
+    // Try on load (may be blocked by the browser).
+    setTimeout(speakOnce, 300);
+
+    const audioBtn = document.getElementById('audioBtn') as HTMLButtonElement | null;
+    if (audioBtn) {
+      audioBtn.addEventListener('click', () => {
+        speakOnce();
+        audioBtn.style.display = 'none';
+      });
+    }
   }
 }
